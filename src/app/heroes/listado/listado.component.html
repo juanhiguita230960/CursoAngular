@@ -1,0 +1,26 @@
+<p>listado works!</p>
+
+<ul>
+    <li>Item 1:  {{ heroes[0] }}</li>
+    <li>Item 2:  {{ heroes[1] }}</li>
+    <li>Item 3:  {{ heroes[2] }}</li>
+    <li>Item 4:  {{ heroes[3] }}</li>
+</ul>
+
+<!-- Podemos utilizar el ngFor para recorrer los datos -->
+<ul>
+    <li *ngFor ="let heroe of heroes, let i = index">
+        Item {{ i }}:  {{ heroe }}
+    </li>
+</ul>
+<div *ngIf = "heroeBorrado !== ''; else noBorrado">
+    <h3>Super Heroe borrado <small>{{ heroeBorrado }}</small></h3> 
+</div>
+<ng-template #noBorrado>
+    <span>No ha borrado ningun elemento.</span>
+</ng-template>
+
+
+<button (click) = "borrarHeroe() ">
+    Borrar heroe
+</button>
